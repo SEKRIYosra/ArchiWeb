@@ -14,16 +14,21 @@ public class TaskServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("tasks", tasks); // Passez la liste à la JSP
-        req.getRequestDispatcher("/Task.jsp").forward(req, resp); // Chargez la page JSP
+        resp.setContentType("text/html; charset=UTF-8");
+        req.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
+        req.setAttribute("tasks", tasks);
+        req.getRequestDispatcher("/Task.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String task = req.getParameter("task"); // Récupérez la tâche depuis le formulaire
+        req.setCharacterEncoding("UTF-8");
+        String task = req.getParameter("task");
         if (task != null && !task.trim().isEmpty()) {
-            tasks.add(task); // Ajoutez la tâche à la liste
+            tasks.add(task);
         }
-        resp.sendRedirect("tasks"); // Redirection vers la méthode GET
+        resp.sendRedirect("tasks");
     }
+
 }

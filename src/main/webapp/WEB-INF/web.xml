@@ -9,17 +9,33 @@
          version="3.0">
 
     <display-name>TaskManager</display-name>
-    
-    <!-- Déclaration de la servlet -->
+
     <servlet>
         <servlet-name>TaskServlet</servlet-name>
         <servlet-class>archiweb.TaskServlet</servlet-class>
+    
+        <init-param>
+            <param-name>databaseUrl</param-name>
+            <param-value>jdbc:mysql://localhost:3306/tasks</param-value>
+        </init-param>
+        <init-param>
+            <param-name>appName</param-name>
+            <param-value>Task Manager Application</param-value>
+        </init-param>
     </servlet>
 
-    <!-- Mapping de la servlet -->
+   
     <servlet-mapping>
         <servlet-name>TaskServlet</servlet-name>
         <url-pattern>/tasks</url-pattern>
     </servlet-mapping>
+
+  
+    <resource-ref>
+        <description>Base de données des tâches</description>
+        <res-ref-name>jdbc/TaskDB</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
 
 </web-app>

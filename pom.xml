@@ -8,16 +8,21 @@
   <name>TaskManager Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
-  <dependencies>
 
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
+
+  <dependencies>
     <dependency>
       <groupId>jakarta.servlet</groupId>
       <artifactId>jakarta.servlet-api</artifactId>
       <version>5.0.0</version>
       <scope>provided</scope>
     </dependency>
-
-
     <dependency>
       <groupId>jakarta.servlet.jsp.jstl</groupId>
       <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
@@ -28,8 +33,6 @@
       <artifactId>jakarta.servlet.jsp.jstl</artifactId>
       <version>3.0.0</version>
     </dependency>
-
-  
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
